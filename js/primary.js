@@ -10,6 +10,31 @@ let pDonationAmount = parseFloat(document.getElementById('protest-d-amount').inn
 const pTitle = document.getElementById('protest-title').innerText;
 
 
+// // nav ids:
+// btn-blog  -- blog button
+// my-balance -- balance span
+
+// banner ids:
+// donation-toggle
+// history-toggle
+
+// donation sec id: donation-container
+
+// donation card ids:
+// noakhali-d-amount
+// noakhali-title
+// noakhali-d-input
+// donate-btn
+
+// feni-d-amount
+// feni-title
+// feni-d-input
+
+
+// protest-d-amount
+// protest-title
+// protest-d-input
+
 
 //For Protest Card.
 document.getElementById('p-donate-btn').addEventListener('click', function (e) {
@@ -35,7 +60,7 @@ document.getElementById('f-donate-btn').addEventListener('click', function (e) {
 
 // Common Function for all 3 locations.
 
-function calculateDonation(inputValueId, mainBalanceID , areaDonationAmountID, areaDonationAmount ) {
+function calculateDonation(inputValueId, mainBalanceID, areaDonationAmountID, areaDonationAmount) {
     let donationAmount = getInputValueById(inputValueId);
     let mainBalanceAmount = parseFloat(document.getElementById('my-balance').innerText);
 
@@ -68,3 +93,24 @@ function resetInput(id) {
     document.getElementById(id).value = "";
 }
 
+
+// Toggle Container Function
+
+document.getElementById('history-toggle').addEventListener('click', function () {
+    toggleShow('history-container');
+    toggleHide('donation-container');
+})
+
+document.getElementById('donation-toggle').addEventListener('click', function () {
+    toggleHide('history-container');
+    toggleShow('donation-container');
+})
+
+function toggleShow(id) {
+    document.getElementById(id).classList.remove('hidden');
+
+}
+function toggleHide(id) {
+    document.getElementById(id).classList.add('hidden');
+
+}

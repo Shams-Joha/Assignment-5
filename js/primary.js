@@ -31,7 +31,7 @@ const pTitle = document.getElementById('protest-title').innerText;
 // feni-d-input
 
 
-// protest-d-amount
+// protest-d-amount 
 // protest-title
 // protest-d-input
 
@@ -39,37 +39,56 @@ const pTitle = document.getElementById('protest-title').innerText;
 //For Protest Card.
 document.getElementById('p-donate-btn').addEventListener('click', function (e) {
     e.preventDefault();
-    calculateDonation('protest-d-input', 'my-balance', 'protest-d-amount', pDonationAmount);
+    calculateDonation('protest-d-input', 'my-balance', 'protest-d-amount', pDonationAmount, pTitle);
 
 })
 
 //For Noakhali Card.
 document.getElementById('n-donate-btn').addEventListener('click', function (e) {
     e.preventDefault();
-    calculateDonation('noakhali-d-input', 'my-balance', 'noakhali-d-amount', nDonationAmount);
+    calculateDonation('noakhali-d-input', 'my-balance', 'noakhali-d-amount', nDonationAmount, nTitle);
 
 })
 
 // For Feni Card.
 document.getElementById('f-donate-btn').addEventListener('click', function (e) {
     e.preventDefault();
-    calculateDonation('feni-d-input', 'my-balance', 'feni-d-amount', fDonationAmount);
+    calculateDonation('feni-d-input', 'my-balance', 'feni-d-amount', fDonationAmount, fTitle);
 
 })
 
 
 // Common Function for all 3 locations.
 
-function calculateDonation(inputValueId, mainBalanceID, areaDonationAmountID, areaDonationAmount) {
-    let donationAmount = getInputValueById(inputValueId);
+function calculateDonation(inputValueId, mainBalanceID, areaDonationAmountID, areaDonationAmount, titleId) {
+    let hold = getInputValueById(inputValueId);
     let mainBalanceAmount = parseFloat(document.getElementById('my-balance').innerText);
 
-    if (!isNaN(donationAmount) && donationAmount > 0) {
+    if (!isNaN(hold) && hold > 0) {
+        let donationAmount = parseFloat(hold);
         areaDonationAmount += donationAmount;
         document.getElementById(areaDonationAmountID).innerText = areaDonationAmount;
         mainBalanceAmount = mainBalanceAmount - donationAmount;
         document.getElementById(mainBalanceID).innerText = mainBalanceAmount;
         resetInput(inputValueId);
+
+        const date = new Date();
+
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        const year = date.getFullYear();
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+        const seconds = date.getSeconds();
+
+
+        document.getElementById('history-container').innerHTML += `
+        <div class= "p-10 rounded-2xl border-gray-300 border mt-5">
+        <p class= "font-bold text-xl" >${donationAmount} Taka is Donated for ${titleId}</p>
+        <p>Date: ${day}/${month}/${year} - Time: ${hours}:${minutes}:${seconds} GMT +0600 (Bangladesh Standard Time)</p>
+        </div>
+        `
+
     }
     else {
         alert('Please Enter a Valid Donation Amount');
@@ -84,7 +103,7 @@ function calculateDonation(inputValueId, mainBalanceID, areaDonationAmountID, ar
 // Function to get input value by given Id.
 function getInputValueById(id) {
     let inputValue = document.getElementById(id).value;
-    return parseFloat(inputValue);
+    return inputValue;
 
 }
 

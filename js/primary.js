@@ -39,7 +39,7 @@ function calculateDonation(inputValueId, mainBalanceID, areaDonationAmountID, do
     let hold = getInputValueById(inputValueId);
     let mainBalanceAmount = parseFloat(document.getElementById('my-balance').innerText);
 
-    if (!isNaN(hold) && hold > 0) {
+    if (!isNaN(hold) && hold > 0 && hold < mainBalanceAmount ) {
         let donationAmount = parseFloat(hold);
         areaDonationAmount += donationAmount;
         document.getElementById(areaDonationAmountID).innerText = areaDonationAmount;

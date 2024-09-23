@@ -119,13 +119,28 @@ function resetInput(id) {
 document.getElementById('history-toggle').addEventListener('click', function () {
     toggleShow('history-container');
     toggleHide('donation-container');
+    this.classList.add('bg-green-500', 'text-white');
+    const donateBtn = document.getElementById('donation-toggle');
+    donateBtn.classList.remove('bg-green-500', 'text-white');
+    donateBtn.classList.add('bg-gray-200', 'text-black');
+    console.log(donateBtn);
+
 
 })
 
 document.getElementById('donation-toggle').addEventListener('click', function () {
     toggleHide('history-container');
     toggleShow('donation-container');
+    this.classList.add('bg-green-500', 'text-white');
+    const hisBtn = document.getElementById('history-toggle');
+    hisBtn.classList.remove('bg-green-500', 'text-white');
+    console.log(hisBtn);
+
+
 })
+
+
+
 
 function toggleShow(id) {
     document.getElementById(id).classList.remove('hidden');

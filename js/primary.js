@@ -70,11 +70,15 @@ function calculateDonation(inputValueId, mainBalanceID, areaDonationAmountID, do
         document.getElementById(areaDonationAmountID).innerText = areaDonationAmount;
         mainBalanceAmount = mainBalanceAmount - donationAmount;
         document.getElementById(mainBalanceID).innerText = mainBalanceAmount;
-        document.getElementById(donateBtnId).onclick= my_modal_1.showModal();
+        document.getElementById(donateBtnId).onclick = my_modal_1.showModal();
         resetInput(inputValueId);
 
         const date = new Date();
+        const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
+        const timeZoneOffset = date.getTimezoneOffset();
+        const hoursOffset = Math.abs(timeZoneOffset / 60);
+        const sign = timeZoneOffset > 0 ? '-' : '+';
         const day = date.getDate();
         const month = date.getMonth() + 1;
         const year = date.getFullYear();
@@ -86,7 +90,7 @@ function calculateDonation(inputValueId, mainBalanceID, areaDonationAmountID, do
         document.getElementById('history-container').innerHTML += `
         <div class= "p-10 rounded-2xl border-gray-300 border mt-5">
         <p class= "font-bold text-xl" >${donationAmount} Taka is Donated for ${titleId}</p>
-        <p>Date: ${day}/${month}/${year} - Time: ${hours}:${minutes}:${seconds} GMT +0600 (Bangladesh Standard Time)</p>
+        <p>Date: ${day}/${month}/${year} - Time: ${hours}:${minutes}:${seconds} UTC${sign}${String(hoursOffset).padStart(2, '0')}:00 ${timeZone}</p>
         </div>
         `
 
@@ -122,7 +126,7 @@ document.getElementById('history-toggle').addEventListener('click', function () 
     const donateBtn = document.getElementById('donation-toggle');
     donateBtn.classList.remove('bg-green-500', 'text-white');
     donateBtn.classList.add('bg-gray-200', 'text-black');
-    
+
 
 
 })
@@ -133,7 +137,7 @@ document.getElementById('donation-toggle').addEventListener('click', function ()
     this.classList.add('bg-green-500', 'text-white');
     const hisBtn = document.getElementById('history-toggle');
     hisBtn.classList.remove('bg-green-500', 'text-white');
-  
+
 
 
 })

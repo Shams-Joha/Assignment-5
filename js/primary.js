@@ -39,28 +39,28 @@ const pTitle = document.getElementById('protest-title').innerText;
 //For Protest Card.
 document.getElementById('p-donate-btn').addEventListener('click', function (e) {
     e.preventDefault();
-    calculateDonation('protest-d-input', 'my-balance', 'protest-d-amount', pDonationAmount, pTitle);
+    calculateDonation('protest-d-input', 'my-balance', 'protest-d-amount', 'p-donate-btn', pDonationAmount, pTitle);
 
 })
 
 //For Noakhali Card.
 document.getElementById('n-donate-btn').addEventListener('click', function (e) {
     e.preventDefault();
-    calculateDonation('noakhali-d-input', 'my-balance', 'noakhali-d-amount', nDonationAmount, nTitle);
+    calculateDonation('noakhali-d-input', 'my-balance', 'noakhali-d-amount', 'n-donate-btn', nDonationAmount, nTitle);
 
 })
 
 // For Feni Card.
 document.getElementById('f-donate-btn').addEventListener('click', function (e) {
     e.preventDefault();
-    calculateDonation('feni-d-input', 'my-balance', 'feni-d-amount', fDonationAmount, fTitle);
+    calculateDonation('feni-d-input', 'my-balance', 'feni-d-amount', 'f-donate-btn', fDonationAmount, fTitle);
 
 })
 
 
 // Common Function for all 3 locations.
 
-function calculateDonation(inputValueId, mainBalanceID, areaDonationAmountID, areaDonationAmount, titleId) {
+function calculateDonation(inputValueId, mainBalanceID, areaDonationAmountID, donateBtnId, areaDonationAmount, titleId) {
     let hold = getInputValueById(inputValueId);
     let mainBalanceAmount = parseFloat(document.getElementById('my-balance').innerText);
 
@@ -70,6 +70,7 @@ function calculateDonation(inputValueId, mainBalanceID, areaDonationAmountID, ar
         document.getElementById(areaDonationAmountID).innerText = areaDonationAmount;
         mainBalanceAmount = mainBalanceAmount - donationAmount;
         document.getElementById(mainBalanceID).innerText = mainBalanceAmount;
+        document.getElementById(donateBtnId).onclick= my_modal_1.showModal();
         resetInput(inputValueId);
 
         const date = new Date();
@@ -118,6 +119,7 @@ function resetInput(id) {
 document.getElementById('history-toggle').addEventListener('click', function () {
     toggleShow('history-container');
     toggleHide('donation-container');
+
 })
 
 document.getElementById('donation-toggle').addEventListener('click', function () {

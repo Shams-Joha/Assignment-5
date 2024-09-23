@@ -21,9 +21,9 @@
 </head>
 
 <body class="lexend-font">
-    <header class="sticky top-0 z-1000">
+    <header class="sticky top-0 z-1000 bg-white border border-gray-300 rounded-xl mb-10">
         <!--------------------------------------------- Navbar Design Begins ------------------------------------->
-        <nav class="bg-[#F9F7F3] pb-14 pt-8 mb-24">
+        <nav class="bg-[#F9F7F3] pb-8 pt-8 mb-18">
             <div class="flex justify-around">
                 <button id="btn-blog"
                     class="btn  bg-[#B4F461] text-black font-bold text-lg px-8 hover:bg-gray-700 hover:text-white transition-colors duration-200">
@@ -42,10 +42,8 @@
         </nav>
         <!--------------------------------------------- Navbar Design Ends ------------------------------------->
 
-    </header>
-    <main>
         <!--------------------------------------------- Banner Design Begins ------------------------------------->
-        <section class="mb-10">
+        <section class="mb-8 mt-12">
             <div class="flex gap-3 justify-center">
                 <button id="donation-toggle"
                     class="btn bg-[#B4F461] text-black font-bold text-lg px-8 hover:bg-gray-700 hover:text-white transition-colors duration-200">
@@ -57,6 +55,10 @@
 
         </section>
         <!--------------------------------------------- Banner Design Ends ------------------------------------->
+
+    </header>
+    <main>
+
         <!-------------------------------------------------------- Donation Section Starts----------------------------------------------------- -->
         <section id="donation-container" class="w-3/4 mx-auto mb-10">
 
@@ -93,6 +95,25 @@
                     </div>
 
                 </div>
+                <!-- Open the modal using ID.showModal() method -->
+                
+                <dialog id="my_modal_1" class="modal">
+                    <div class="modal-box flex flex-col items-center justify-center space-y-4">
+                        <h3 class="text-2xl font-bold">Congrates!</h3>
+                        <img src="assets/coin.png" alt="">
+                        <p class="py-4">You Have Donated for Humankind</p>
+                        <p class="text-lg font-bold">Sussessfully</p>
+                        <div class="modal-action">
+                            <form method="dialog">
+                                <!-- if there is a button in form, it will close the modal -->
+                                 <div>
+                                    <button class="btn">Close Confirmation</button>
+                                 </div>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </dialog>
                 <!------------------------------------------------CARD 1 Ends--------------------------------------------------- -->
 
                 <!------------------------------------------------CARD 2 Starts--------------------------------------------------- -->

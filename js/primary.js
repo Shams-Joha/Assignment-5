@@ -100,7 +100,6 @@ function calculateDonation(inputValueId, mainBalanceID, areaDonationAmountID, do
 
 
 
-
 // Function to get input value by given Id.
 function getInputValueById(id) {
     let inputValue = document.getElementById(id).value;
@@ -123,7 +122,7 @@ document.getElementById('history-toggle').addEventListener('click', function () 
     const donateBtn = document.getElementById('donation-toggle');
     donateBtn.classList.remove('bg-green-500', 'text-white');
     donateBtn.classList.add('bg-gray-200', 'text-black');
-    console.log(donateBtn);
+    
 
 
 })
@@ -134,13 +133,10 @@ document.getElementById('donation-toggle').addEventListener('click', function ()
     this.classList.add('bg-green-500', 'text-white');
     const hisBtn = document.getElementById('history-toggle');
     hisBtn.classList.remove('bg-green-500', 'text-white');
-    console.log(hisBtn);
+  
 
 
 })
-
-
-
 
 function toggleShow(id) {
     document.getElementById(id).classList.remove('hidden');

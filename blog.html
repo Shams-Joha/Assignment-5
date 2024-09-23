@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Page</title>
+    <!-- Lexend Font Code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <!-- DaisyUi & Tailwind Cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .lexend-font {
+            font-family: "Lexend", sans-serif;
+        }
+    </style>
+</head>
+
+<body class="lexend-font">
+    <header class="sticky top-0 z-1000 bg-white border border-gray-300 mb-10">
+        <!--------------------------------------------- Navbar Design Begins ------------------------------------->
+        <nav class="bg-[#F9F7F3] pb-8 pt-8 mb-18">
+            <div class="flex justify-around">
+                <button id="btn-home"
+                    class="btn  bg-[#B4F461] text-black font-bold text-sm lg:text-lg px-4 lg:px-8 hover:bg-gray-700 hover:text-white transition-colors duration-200">
+                    Home</button>
+                <div class="flex gap-3 justify-center items-center">
+                    <div>
+                        <img class="w-full" src="assets/logo.png" alt="">
+                    </div>
+                    <h2 class="text-black font-bold text-sm lg:text-xl">Donate Bangladesh</h2>
+                </div>
+                <div class="flex gap-1 lg:gap-3 justify-center items-center">
+                    <div>
+                        <img class="w-full" src="assets/coin.png" alt="">
+                    </div>
+                    <span id="my-balance2" class="text-[#11111196] text-sm lg:text-xl font-semibold">5500</span>
+                    <span class="text-[#11111196] text-sm lg:text-xl font-semibold">BDT</span>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+
+    <main class="w-[95%] lg:w-3/4 mx-auto">
+
+        <h1 class="text-black font-bold text-2xl my-10 flex items-center uppercase">Important FAQ <img class="w-10 ml-4"
+                src="assets/question-mark.png" alt=""></h1>
+        <!-- Accordion -->
+        <div class="join join-vertical w-full">
+            <div class="collapse collapse-arrow join-item border-base-300 border">
+                <input type="radio" name="my-accordion-4" checked="checked" />
+                <div class="collapse-title text-xl font-medium">What is Document Object Model (DOM) ?</div>
+                <div class="collapse-content">
+                    <p>DOM is a JS Object that represents the page we see in a Web Browser and provides us with an API
+                        to interact with it.
+                        Our Web browser creates the DOM when it loads an HTML Document & Structures all the documents
+                        like a tree. With JS we use DOM to
+                        dynamically access any HTML element and modify it to our liking.
+                    </p>
+                </div>
+            </div>
+            <div class="collapse collapse-arrow join-item border-base-300 border">
+                <input type="radio" name="my-accordion-4" />
+                <div class="collapse-title text-xl font-medium">How do you select an Element from the DOM ?</div>
+                <div class="collapse-content">
+                    <p>We can use several methods for this.
+                        For example getElementByID(), getElementByClassName(), getElementByTagName(), querySelector() &
+                        querySelectorAll()
+                        These methods access the element by it's respective criteria, ex: id, class, tag, selectors etc.
+                    </p>
+                </div>
+            </div>
+            <div class="collapse collapse-arrow join-item border-base-300 border">
+                <input type="radio" name="my-accordion-4" />
+                <div class="collapse-title text-xl font-medium">What is Event Delegation in the Context of DOM, Why is
+                    it useful?</div>
+                <div class="collapse-content">
+                    <p>Event Delegation is the process of efficiently managing & handling events on multiple child
+                        elements by attaching a single event listener
+                        on a common ancestor. This ancestor listens for events that bubble up from it's child elements.
+                        For example, if we have a list of items
+                        and want to handle clicks on each one, we can attach a listener to the parent ul instead of
+                        each individual li. Inside the event handler, we can use event.target to determine which child
+                        element triggered the event & act accordingly.
+
+                        It is useful because it improves performance by reducing event listener count and handles
+                        dynamic elements for ex:
+                        If elements are added and removed dynamically the parent will still capture events from newly added children.
+
+                    </p>
+                </div>
+            </div>
+            <div class="collapse collapse-arrow join-item border-base-300 border">
+                <input type="radio" name="my-accordion-4" />
+                <div class="collapse-title text-xl font-medium">How do you manipulate an element's attributes & styles
+                    using the DOM ?</div>
+                <div class="collapse-content">
+                    <p>We can manipulate an element's attributes & styles using various JS methods. For example: We can
+                        use getAttribute(), setAttribute()
+                        or removeAttribute() to get, set and remove attributes of an element. We can use
+                        element.style.__ property
+                        to style an element & we also can use methods such as classList.add or remove for dynamically
+                        assign classes to an element.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <script src="js/blog.js"></script>
+</body>
+
+</html>

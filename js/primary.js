@@ -10,31 +10,6 @@ let pDonationAmount = parseFloat(document.getElementById('protest-d-amount').inn
 const pTitle = document.getElementById('protest-title').innerText;
 
 
-// // nav ids:
-// btn-blog  -- blog button
-// my-balance -- balance span
-
-// banner ids:
-// donation-toggle
-// history-toggle
-
-// donation sec id: donation-container
-
-// donation card ids:
-// noakhali-d-amount
-// noakhali-title
-// noakhali-d-input
-// donate-btn
-
-// feni-d-amount
-// feni-title
-// feni-d-input
-
-
-// protest-d-amount 
-// protest-title
-// protest-d-input
-
 
 //For Protest Card.
 document.getElementById('p-donate-btn').addEventListener('click', function (e) {
@@ -141,7 +116,7 @@ document.getElementById('donation-toggle').addEventListener('click', function ()
 
 
 })
-
+//  Show & Hide functions.
 function toggleShow(id) {
     document.getElementById(id).classList.remove('hidden');
 
@@ -150,3 +125,10 @@ function toggleHide(id) {
     document.getElementById(id).classList.add('hidden');
 
 }
+
+//Blog Page Toggle.
+
+document.getElementById('btn-blog').addEventListener('click',function(){
+    window.location.href = '../blog.html';
+})
+
